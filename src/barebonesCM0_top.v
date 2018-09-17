@@ -4,8 +4,11 @@ module barebonesCM0_top
     input wire i_reset,
     output wire o_txev,
     output wire o_lockup,
+    output wire o_led,
     output wire o_clk_dbg,
     output wire [3:0] o_debug,
+    
+    /* SWD */
     input wire SWDCK,
     inout wire SWDIO
 );
@@ -166,8 +169,6 @@ CORTEXM0INTEGRATION u_CORTEXM0INTEGRATION
 );
 
 /* Instantiate ROM */
-
-
 ahb_rom u_ahb_rom
 (
 .HCLK       (clock),
@@ -197,5 +198,14 @@ cmsdk_mcu_stclkctrl
     .STCLKEN   (STCLKEN),
     .STCALIB   (STCALIB)
     );
+
+
+/* Instantiate LED controller */
+t_flipflop u_t_flipflop
+(
+.clk   (TXEV),
+.reset (i_reset),
+.q     (o_led)
+);
 
 endmodule
