@@ -10,6 +10,6 @@ The design can be simulated or implemented on a [Digilent Basys3 board](https://
 **Tag 0.1**: Simplest possible design based on CortexM0 core interfaced with an AHB Read Only Memory containing a blinky LED project. Blink signal is driven by TXEV which is generated when core executes 'SEV' instruction.
 To change the program edit the ROM contents in 'ahb_rom.v' file.
 
-![Blinky Simulation](https://github.com/siorpaes/BareBonesCortexM0/tree/master/images/TXEV.png)
+![Blinky Simulation](/images/TXEV.png)
 
 Reset signal is mapped on SW0 switch, TXEV signal is mapped on LD4 led.
