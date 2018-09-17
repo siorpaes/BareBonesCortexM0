@@ -5,7 +5,9 @@ module barebonesCM0_top
     output wire o_txev,
     output wire o_lockup,
     output wire o_clk_dbg,
-    output wire [3:0] o_debug
+    output wire [3:0] o_debug,
+    input wire SWDCK,
+    inout wire SWDIO
 );
 
 
@@ -29,8 +31,10 @@ wire    CODENSEQ;
 wire    [2:0] CODEHINTDE;
 wire    SPECHTRANS;
 
+wire    SWCLKTCK;
 wire    SWDO;
 wire    SWDOEN;
+wire    SWDITMS;
 wire    TDO;
 wire    nTDOEN;
 wire    DBGRESTARTED;
@@ -70,6 +74,12 @@ assign o_clk_dbg = clock;
 assign o_debug = HRDATA[3:0];
 assign o_lockup = LOCKUP;
 
+
+/* SWD debugger */
+assign SWDIO = SWDOEN ? SWDO : 1'bz; //SWD Output
+assign SWDITMS = SWDIO;              //SWD Input
+assign SWCLKTCK = SWDCK;             //SWD Clock
+
 /* Unused signals */
 wire unused;
 assign unused = SPECHTRANS | CODENSEQ | (|CODEHINTDE) | (|WICSENSE) | HALTED; 
@@ -89,7 +99,6 @@ CORTEXM0INTEGRATION u_CORTEXM0INTEGRATION
 .PORESETn   (i_reset),
 .DBGRESETn  (i_reset),
 .HRESETn    (i_reset),
-.SWCLKTCK	(clock),
 .nTRST      (i_reset),
 
 /* AHB-Lite master port */
@@ -112,7 +121,8 @@ CORTEXM0INTEGRATION u_CORTEXM0INTEGRATION
 .SPECHTRANS (SPECHTRANS),
 
 /* Debug */
-.SWDITMS    (1'b0),
+.SWCLKTCK	(SWCLKTCK),
+.SWDITMS    (SWDITMS),
 .TDI        (1'b0),
 .SWDO       (SWDO),
 .SWDOEN     (SWDOEN),
@@ -148,10 +158,10 @@ CORTEXM0INTEGRATION u_CORTEXM0INTEGRATION
 .WICENREQ       (1'b0),
 .WICENACK       (WICENACK),
 .CDBGPWRUPREQ   (CDBGPWRUPREQ),
-.CDBGPWRUPACK   (1'b1),
+.CDBGPWRUPACK	(CDBGPWRUPREQ), //Wire request and ACK. See Fig. 6-7 in "CoreSight Technology System Design Guide"
 
 /* Scan IO */
-.SE             (1'b0),
+.SE             (1'b1),
 .RSTBYPASS      (1'b0)
 );
 
