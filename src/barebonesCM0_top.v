@@ -87,10 +87,6 @@ assign SWCLKTCK = SWDCK;             //SWD Clock
 wire unused;
 assign unused = SPECHTRANS | CODENSEQ | (|CODEHINTDE) | (|WICSENSE) | HALTED; 
 
-/* AHB decoder: ROM always selected */
-assign HSEL = 1'b1;
-assign HREADY = 1'b1;
-
 /* Instantiate Cortex-M0 */
 CORTEXM0INTEGRATION u_CORTEXM0INTEGRATION
 (
@@ -114,7 +110,8 @@ CORTEXM0INTEGRATION u_CORTEXM0INTEGRATION
 .HWDATA     (HWDATA[31:0]),
 .HWRITE     (HWRITE),
 .HRDATA     (HRDATA[31:0]),
-.HREADY     (HREADY),
+//.HREADY     (HREADY),
+.HREADY     (1'b1),
 .HRESP      (HRESP),
 .HMASTER    (HMASTER),
 
@@ -168,25 +165,29 @@ CORTEXM0INTEGRATION u_CORTEXM0INTEGRATION
 .RSTBYPASS      (1'b0)
 );
 
-/* Instantiate ROM */
-ahb_rom u_ahb_rom
-(
-.HCLK       (clock),
-.HSEL       (HSEL),
-.HADDR      (HADDR[31:0]),
-.HBURST     (HBURST),
-.HMASTLOCK  (HMASTLOCK),
-.HPROT      (HPROT[3:0]),
-.HSIZE      (HSIZE[2:0]),
-.HTRANS     (HTRANS[1:0]),
-.HWDATA     (HWDATA[31:0]),
-.HWRITE     (HWRITE),
-.HREADY     (HREADY),
-.HRDATA     (HRDATA[31:0]),
-.HRESP      (HRESP),
-.HREADYOUT  (HREADYOUT)
-);
 
+/* AHB decoder: ROM always selected */
+assign HSEL = 1'b1;
+assign HREADY = 1'b1;
+assign HRESP = 1'b0;   //Always ok
+
+
+/* Instantiate 256 byte AHB RAM */
+AHB2MEM
+	#(.MEMWIDTH (8))
+	u_AHB2MEM(
+		.HSEL (1'b1),
+		.HCLK (clock),
+		.HRESETn (i_reset),
+		.HREADY (1'b1),
+		.HADDR (HADDR),
+		.HTRANS (HTRANS),
+		.HWRITE (HWRITE),
+		.HSIZE (HSIZE),
+		.HWDATA (HWDATA),
+		.HREADYOUT (HREADY),
+		.HRDATA (HRDATA)
+	);
 
 /* Instantiate SysTick */
 cmsdk_mcu_stclkctrl

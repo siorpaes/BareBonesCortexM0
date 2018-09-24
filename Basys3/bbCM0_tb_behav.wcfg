@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="195846666667fs"></ZoomStartTime>
-      <ZoomEndTime time="220766666668fs"></ZoomEndTime>
-      <Cursor1Time time="200000000000fs"></Cursor1Time>
+      <ZoomStartTime time="9990483333333fs"></ZoomStartTime>
+      <ZoomEndTime time="10003103333334fs"></ZoomEndTime>
+      <Cursor1Time time="10001000000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="186"></NameColumnWidth>
-      <ValueColumnWidth column_width="164"></ValueColumnWidth>
+      <ValueColumnWidth column_width="148"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="9" />
+   <WVObjectSize size="10" />
    <wvobject fp_name="/bbCM0_tb/r_CLOCK" type="logic">
       <obj_property name="ElementShortName">r_CLOCK</obj_property>
       <obj_property name="ObjectShortName">r_CLOCK</obj_property>
@@ -40,20 +40,24 @@
       <obj_property name="ElementShortName">clock</obj_property>
       <obj_property name="ObjectShortName">clock</obj_property>
    </wvobject>
-   <wvobject fp_name="/bbCM0_tb/UUT/HADDR" type="array">
+   <wvobject fp_name="/bbCM0_tb/UUT/u_CORTEXM0INTEGRATION/HADDR" type="array">
       <obj_property name="ElementShortName">HADDR[31:0]</obj_property>
       <obj_property name="ObjectShortName">HADDR[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/bbCM0_tb/UUT/HWRITE" type="logic">
-      <obj_property name="ElementShortName">HWRITE</obj_property>
-      <obj_property name="ObjectShortName">HWRITE</obj_property>
-   </wvobject>
-   <wvobject fp_name="/bbCM0_tb/UUT/HWDATA" type="array">
-      <obj_property name="ElementShortName">HWDATA[31:0]</obj_property>
-      <obj_property name="ObjectShortName">HWDATA[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/bbCM0_tb/UUT/HRDATA" type="array">
+   <wvobject fp_name="/bbCM0_tb/UUT/u_CORTEXM0INTEGRATION/HRDATA" type="array">
       <obj_property name="ElementShortName">HRDATA[31:0]</obj_property>
       <obj_property name="ObjectShortName">HRDATA[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/bbCM0_tb/UUT/u_CORTEXM0INTEGRATION/HREADY" type="logic">
+      <obj_property name="ElementShortName">HREADY</obj_property>
+      <obj_property name="ObjectShortName">HREADY</obj_property>
+   </wvobject>
+   <wvobject fp_name="/bbCM0_tb/UUT/u_CORTEXM0INTEGRATION/HRESP" type="logic">
+      <obj_property name="ElementShortName">HRESP</obj_property>
+      <obj_property name="ObjectShortName">HRESP</obj_property>
+   </wvobject>
+   <wvobject fp_name="/bbCM0_tb/UUT/u_AHB2MEM/memory" type="array">
+      <obj_property name="ElementShortName">memory[0:63][31:0]</obj_property>
+      <obj_property name="ObjectShortName">memory[0:63][31:0]</obj_property>
    </wvobject>
 </wave_config>
