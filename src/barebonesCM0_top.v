@@ -110,8 +110,7 @@ CORTEXM0INTEGRATION u_CORTEXM0INTEGRATION
 .HWDATA     (HWDATA[31:0]),
 .HWRITE     (HWRITE),
 .HRDATA     (HRDATA[31:0]),
-//.HREADY     (HREADY),
-.HREADY     (1'b1),
+.HREADY     (HREADY),
 .HRESP      (HRESP),
 .HMASTER    (HMASTER),
 
@@ -168,15 +167,14 @@ CORTEXM0INTEGRATION u_CORTEXM0INTEGRATION
 
 /* AHB decoder: ROM always selected */
 assign HSEL = 1'b1;
-assign HREADY = 1'b1;
-assign HRESP = 1'b0;   //Always ok
+assign HRESP = 1'b0;   //Transactions always ok
 
 
 /* Instantiate 256 byte AHB RAM */
 AHB2MEM
 	#(.MEMWIDTH (8))
 	u_AHB2MEM(
-		.HSEL (1'b1),
+		.HSEL (HSEL),
 		.HCLK (clock),
 		.HRESETn (i_reset),
 		.HREADY (1'b1),

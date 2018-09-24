@@ -50,8 +50,8 @@ module AHB2MEM
   
   initial
   begin
-  	/* Only absolute path works.. */
-	$readmemh("E:/FPGA-daz/ARM_DesignStart/BareBonesCortexM0/src/code.hex", memory, 0, 63);
+  	/* Add file to project to make it visible (also in simulation)  */
+	$readmemh("code.hex", memory, 0, 63);
   end
 
 // Sample the Address Phase   
