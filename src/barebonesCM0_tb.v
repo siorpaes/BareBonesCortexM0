@@ -1,4 +1,3 @@
-//`include "barebonesCM0_top.v"
 `timescale 1ns/1ns
 
 module bbCM0_tb;

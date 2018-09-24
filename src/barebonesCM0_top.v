@@ -204,9 +204,9 @@ cmsdk_mcu_stclkctrl
 /* Instantiate LED controller */
 t_flipflop u_t_flipflop
 (
-.clk   (TXEV),
-.reset (i_reset),
-.q     (o_led)
+.clk    (TXEV),
+.reset  (i_reset),
+.q_out  (o_led)
 );
 
 endmodule

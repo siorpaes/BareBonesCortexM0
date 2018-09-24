@@ -152,9 +152,9 @@ set_property IOSTANDARD LVCMOS33 [get_ports o_clk_dbg]
 
 ##Pmod Header JB
 ##Sch name = JB1
-set_property CLOCK_DEDICATED_ROUTE FALSE [get_nets SWDCK_IBUF]
 set_property PACKAGE_PIN A14 [get_ports SWDCK]					
 set_property IOSTANDARD LVCMOS33 [get_ports SWDCK]
+set_property CLOCK_DEDICATED_ROUTE FALSE [get_nets SWDCK_IBUF]
 ##Sch name = JB2
 set_property PACKAGE_PIN A16 [get_ports SWDIO]					
 set_property IOSTANDARD LVCMOS33 [get_ports SWDIO]
