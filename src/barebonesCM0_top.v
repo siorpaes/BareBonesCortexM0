@@ -170,9 +170,9 @@ assign HSEL = 1'b1;
 assign HRESP = 1'b0;   //Transactions always ok
 
 
-/* Instantiate 256 byte AHB RAM */
+/* Instantiate 1024 byte AHB RAM */
 AHB2MEM
-	#(.MEMWIDTH (8))
+	#(.MEMWIDTH (10))
 	u_AHB2MEM(
 		.HSEL (HSEL),
 		.HCLK (clock),
