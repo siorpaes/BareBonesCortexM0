@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="9990483333333fs"></ZoomStartTime>
-      <ZoomEndTime time="10003103333334fs"></ZoomEndTime>
-      <Cursor1Time time="10001000000000fs"></Cursor1Time>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="12660000001fs"></ZoomEndTime>
+      <Cursor1Time time="1000000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="186"></NameColumnWidth>
-      <ValueColumnWidth column_width="148"></ValueColumnWidth>
+      <ValueColumnWidth column_width="144"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="10" />
+   <WVObjectSize size="15" />
    <wvobject fp_name="/bbCM0_tb/r_CLOCK" type="logic">
       <obj_property name="ElementShortName">r_CLOCK</obj_property>
       <obj_property name="ObjectShortName">r_CLOCK</obj_property>
@@ -57,7 +57,27 @@
       <obj_property name="ObjectShortName">HRESP</obj_property>
    </wvobject>
    <wvobject fp_name="/bbCM0_tb/UUT/u_AHB2MEM/memory" type="array">
-      <obj_property name="ElementShortName">memory[0:63][31:0]</obj_property>
-      <obj_property name="ObjectShortName">memory[0:63][31:0]</obj_property>
+      <obj_property name="ElementShortName">memory[0:255][31:0]</obj_property>
+      <obj_property name="ObjectShortName">memory[0:255][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/bbCM0_tb/UUT/u_AHB2TUART/u_tuart/START" type="logic">
+      <obj_property name="ElementShortName">START</obj_property>
+      <obj_property name="ObjectShortName">START</obj_property>
+   </wvobject>
+   <wvobject fp_name="/bbCM0_tb/UUT/u_AHB2TUART/u_tuart/TX" type="logic">
+      <obj_property name="ElementShortName">TX</obj_property>
+      <obj_property name="ObjectShortName">TX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/bbCM0_tb/UUT/HWRITE" type="logic">
+      <obj_property name="ElementShortName">HWRITE</obj_property>
+      <obj_property name="ObjectShortName">HWRITE</obj_property>
+   </wvobject>
+   <wvobject fp_name="/bbCM0_tb/UUT/u_AHB2TUART/rLED" type="array">
+      <obj_property name="ElementShortName">rLED[7:0]</obj_property>
+      <obj_property name="ObjectShortName">rLED[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/bbCM0_tb/UUT/u_AHB2TUART/rUartStart" type="logic">
+      <obj_property name="ElementShortName">rUartStart</obj_property>
+      <obj_property name="ObjectShortName">rUartStart</obj_property>
    </wvobject>
 </wave_config>

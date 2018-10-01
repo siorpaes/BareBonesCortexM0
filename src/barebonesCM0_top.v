@@ -10,7 +10,10 @@ module barebonesCM0_top
     
     /* SWD */
     input wire SWDCK,
-    inout wire SWDIO
+    inout wire SWDIO,
+    
+    /* UART */
+    output wire UART_TX
 );
 
 
@@ -205,6 +208,33 @@ t_flipflop u_t_flipflop
 .clk    (TXEV),
 .reset  (i_reset),
 .q_out  (o_led)
+);
+
+/* Instantiate Trivial UART */
+AHB2TUART u_AHB2TUART
+(
+	//AHBLITE INTERFACE
+	//Slave Select Signals
+.HSEL (1'b1),
+	//Global Signal
+.HCLK (clock),
+.HRESETn (i_reset),
+	//Address, Control & Write Data
+.HREADY (1'b1),
+.HADDR (HADDR),
+.HTRANS (HTRANS),
+.HWRITE (HWRITE),
+.HSIZE (HSIZE),
+		
+.HWDATA (HWDATA),
+	// Transfer Response & Read Data
+//.HREADYOUT (),
+//.HRDATA (),
+	//LED Output
+//.LED (),
+
+  //UART Output
+.UART_TX (UART_TX)
 );
 
 endmodule

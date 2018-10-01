@@ -160,7 +160,7 @@ set_property PACKAGE_PIN A16 [get_ports SWDIO]
 set_property IOSTANDARD LVCMOS33 [get_ports SWDIO]
 ##Sch name = JB3
 #set_property PACKAGE_PIN B15 [get_ports {JB[2]}]					
-	#set_property IOSTANDARD LVCMOS33 [get_ports {JB[2]}]
+#set_property IOSTANDARD LVCMOS33 [get_ports {JB[2]}]
 ##Sch name = JB4
 #set_property PACKAGE_PIN B16 [get_ports {JB[3]}]					
 	#set_property IOSTANDARD LVCMOS33 [get_ports {JB[3]}]
@@ -181,8 +181,8 @@ set_property IOSTANDARD LVCMOS33 [get_ports SWDIO]
 
 ##Pmod Header JC
 ##Sch name = JC1
-#set_property PACKAGE_PIN K17 [get_ports {JC[0]}]					
-	#set_property IOSTANDARD LVCMOS33 [get_ports {JC[0]}]
+set_property PACKAGE_PIN K17 [get_ports UART_TX]					
+set_property IOSTANDARD LVCMOS33 [get_ports UART_TX]
 ##Sch name = JC2
 #set_property PACKAGE_PIN M18 [get_ports {JC[1]}]					
 	#set_property IOSTANDARD LVCMOS33 [get_ports {JC[1]}]
@@ -268,8 +268,8 @@ set_property IOSTANDARD LVCMOS33 [get_ports SWDIO]
 ##USB-RS232 Interface
 #set_property PACKAGE_PIN B18 [get_ports RsRx]						
 	#set_property IOSTANDARD LVCMOS33 [get_ports RsRx]
-#set_property PACKAGE_PIN A18 [get_ports RsTx]						
-	#set_property IOSTANDARD LVCMOS33 [get_ports RsTx]
+set_property PACKAGE_PIN A18 [get_ports UART_TX]						
+set_property IOSTANDARD LVCMOS33 [get_ports UART_TX]
 
 
 ##USB HID (PS/2)
