@@ -51,7 +51,7 @@ module AHB2MEM
   initial
   begin
   	/* Add file to project to make it visible (also in simulation)  */
-	$readmemh("code.hex", memory, 0, 63);
+	$readmemh("code.hex", memory, 0, 255);
   end
 
 // Sample the Address Phase   
